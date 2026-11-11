@@ -1,0 +1,315 @@
+{
+  "system_no": 1,
+  "logo_url": "",
+  "systemname": "Kupon Market v12.1",
+  "satin_al_link": "",
+  "destek_link": "https://t.me/kuponmarketdestek",
+  "client_main_url": "",
+  "client_query_url": "",
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 3,
+  "name": "Kupon Market v12.1",
+  "version": "12.1",
+  "description": "KuponMarket v12.1 Token Otomasyonu",
+  "icons": {
+    "128": "assets/img/logo3.png"
+  },
+  "action": {
+    "default_icon": "assets/img/logo3.png",
+    "default_popup": "popup.html",
+    "default_title": "Kupon Market"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://tgoyemek.com/*",
+        "https://*.tgoyemek.com/*"
+      ],
+      "js": ["src/tyks/tgo-address-page.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://tgoyemek.com/*",
+        "https://*.tgoyemek.com/*"
+      ],
+      "js": ["src/tyks/tgo-address-apply.js", "src/tyks/tgo-address-bridge.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://tgoyemek.com/*",
+        "https://*.tgoyemek.com/*"
+      ],
+      "js": ["src/tyks/tgo-ios-coupon.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://tgoyemek.com/*",
+        "https://*.tgoyemek.com/*",
+        "https://trendyol.com/*",
+        "https://*.trendyol.com/*"
+      ],
+      "js": ["src/tyks/trendyol-interceptor.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://tgoyemek.com/*",
+        "https://*.tgoyemek.com/*",
+        "https://trendyol.com/*",
+        "https://*.trendyol.com/*",
+        "https://*.tgoapps.com/*",
+        "https://tgoapps.com/*",
+        "https://payment.tgoapps.com/*"
+      ],
+      "js": ["src/tyks/trendyol-handler.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.yemeksepeti.com/*",
+        "https://www.yemeksepeti.com/*",
+        "https://yemeksepeti.com/*",
+        "http://*.yemeksepeti.com/*",
+        "https://tr.fd-api.com/*"
+      ],
+      "js": ["content_script.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://*.troyagame.com/*",
+        "http://*.troyagame.com/*",
+        "https://*.yemektime.com.tr/*",
+        "http://*.yemektime.com.tr/*",
+        "https://yemektime.com.tr/*",
+        "http://yemektime.com.tr/*"
+      ],
+      "js": ["content_script.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://uber.com/*",
+        "https://www.uber.com/*",
+        "https://m.uber.com/*",
+        "https://*.m.uber.com/*",
+        "https://account.uber.com/*",
+        "https://auth.uber.com/*",
+        "https://login.uber.com/*",
+        "https://payments.uber.com/*",
+        "https://*.uber.com/*",
+        "http://*.uber.com/*",
+        "https://cdn-net.com/*",
+        "http://cdn-net.com/*",
+        "https://*.cdn-net.com/*",
+        "http://*.cdn-net.com/*",
+        "https://cdn-path.com/*",
+        "http://cdn-path.com/*",
+        "https://*.cdn-path.com/*",
+        "http://*.cdn-path.com/*"
+      ],
+      "js": [
+        "src/uber/navigatorOverride.js",
+        "src/uber/uber-idvp-guard.js",
+        "src/uber/uberInterceptor.js",
+        "src/uber/uber-trip-cooldown.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://uber.com/*",
+        "https://www.uber.com/*",
+        "https://m.uber.com/*",
+        "https://*.m.uber.com/*",
+        "https://account.uber.com/*",
+        "https://auth.uber.com/*",
+        "https://login.uber.com/*",
+        "https://payments.uber.com/*",
+        "https://*.uber.com/*",
+        "http://*.uber.com/*",
+        "https://cdn-net.com/*",
+        "http://cdn-net.com/*",
+        "https://*.cdn-net.com/*",
+        "http://*.cdn-net.com/*",
+        "https://cdn-path.com/*",
+        "http://cdn-path.com/*",
+        "https://*.cdn-path.com/*",
+        "http://*.cdn-path.com/*"
+      ],
+      "js": [
+        "uber-storage-bridge.js",
+        "uber-sync-config.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://uber.com/*",
+        "http://uber.com/*",
+        "https://*.uber.com/*",
+        "http://*.uber.com/*",
+        "https://cdn-net.com/*",
+        "http://cdn-net.com/*",
+        "https://*.cdn-net.com/*",
+        "http://*.cdn-net.com/*",
+        "https://cdn-path.com/*",
+        "http://cdn-path.com/*",
+        "https://*.cdn-path.com/*",
+        "http://*.cdn-path.com/*"
+      ],
+      "js": ["content_script.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.migros.com.tr/*",
+        "https://*.migros.com.tr/*"
+      ],
+      "js": ["src/migros/migros-interceptor.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.migros.com.tr/*",
+        "https://*.migros.com.tr/*"
+      ],
+      "js": ["src/migros/migros-handler.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "cookies",
+    "alarms",
+    "tabs",
+    "activeTab",
+    "storage",
+    "browsingData",
+    "scripting",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "webRequest",
+    "webRequestBlocking",
+    "downloads",
+    "management",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "*://*/*",
+    "https://*.yemeksepeti.com/*",
+    "https://tr.fd-api.com/*",
+    "https://*.fd-api.com/*",
+    "http://localhost/*",
+    "https://yemeksepeti.com/*",
+    "https://www.yemeksepeti.com/*",
+    "https://yemeksepeti.com/",
+    "https://*.yemeksepeti.com/*",
+    "https://*.www.yemeksepeti.com/*",
+    "https://www.yemeksepeti.com/",
+    "http://www.yemeksepeti.com/*",
+    "http://yemeksepeti.com/",
+    "http://*.yemeksepeti.com/*",
+    "http://*.www.yemeksepeti.com/*",
+    "http://www.yemeksepeti.com/",
+    "https://ucuzadoy.troyagame.com/*",
+    "https://sunucu2.troyagame.com/*",
+    "https://sunucu3.troyagame.com/*",
+    "https://*.troyagame.com/*",
+    "https://kuponmarket.net/*",
+    "https://*.kuponmarket.net/*",
+    "https://*.yemektime.com.tr/*",
+    "http://*.yemektime.com.tr/*",
+    "https://yemektime.com.tr/*",
+    "http://yemektime.com.tr/*",
+    "https://uber.com/*",
+    "http://uber.com/*",
+    "https://*.uber.com/*",
+    "http://*.uber.com/*",
+    "https://cdn-net.com/*",
+    "http://cdn-net.com/*",
+    "https://*.cdn-net.com/*",
+    "http://*.cdn-net.com/*",
+    "https://cdn-path.com/*",
+    "http://cdn-path.com/*",
+    "https://*.cdn-path.com/*",
+    "http://*.cdn-path.com/*",
+    "https://api.tgoapis.com/*",
+    "https://*.tgoapis.com/*",
+    "http://api.tgoapis.com/*",
+    "http://*.tgoapis.com/*",
+    "https://tgoyemek.com/*",
+    "https://*.tgoyemek.com/*",
+    "http://tgoyemek.com/*",
+    "http://*.tgoyemek.com/*",
+    "https://trendyol.com/*",
+    "https://*.trendyol.com/*",
+    "https://tgoapps.com/*",
+    "https://*.tgoapps.com/*",
+    "https://payment.tgoapps.com/*",
+    "https://*.migros.com.tr/*",
+    "https://www.migros.com.tr/*",
+    "https://rest.migros.com.tr/*",
+    "https://kuponstore.com/*",
+    "https://api.kuponstore.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "analytics_blocker",
+        "enabled": true,
+        "path": "rules/analytics-blocker.json"
+      }
+    ]
+  },
+  "web_accessible_resources": [{
+    "resources": [
+      "inject.js",
+      "crypto-js.min.js",
+      "generate-rsig.js",
+      "pages/login.html",
+      "src/uber/navigatorOverride.js",
+      "src/uber/uber-idvp-guard.js",
+      "src/uber/uberInterceptor.js",
+      "src/uber/uber-trip-cooldown.js",
+      "uber-storage-bridge.js",
+      "uber-sync-config.js",
+      "src/migros/migros-interceptor.js",
+      "src/migros/migros-handler.js",
+      "src/migros/migros-url-blocker.js"
+    ],
+    "matches": ["<all_urls>"]
+  }],
+  "externally_connectable": {
+    "matches": [
+      "https://*.yemektime.com.tr/*",
+      "http://*.yemektime.com.tr/*",
+      "https://*.troyagame.com/*",
+      "http://*.troyagame.com/*",
+      "http://localhost/*",
+      "https://localhost/*"
+    ]
+  }
+}
